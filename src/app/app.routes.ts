@@ -1,3 +1,17 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { StarshipListComponent } from './components/starship-list/starship-list.component';
+import { NgModule } from '@angular/core';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: 'starship', component: StarshipListComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/starship', pathMatch: 'full' }, //hacer que la pagina predeterminada sea starship
+  {path: '**', component: PageNotFoundComponent} //404 not found
+];
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
