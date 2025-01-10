@@ -1,0 +1,32 @@
+<a class="btn" routerLink="/home" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Atrás</a>
+<div *ngIf="nave" class="card container">
+    <div class="row">
+        <div class="col">
+            <ng-container *ngIf="nave.image2; else loading">
+                <img src="{{nave.image2}}" alt="foto-nave" class="img-fluid">
+            </ng-container>
+            <ng-template #loading>
+                <img src="assets/img/loading.gif" alt="Cargando..." class="img-fluid">
+            </ng-template>
+        </div>
+        <div class="col info">
+            <p class="nombre-starship">{{nave.name}}</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.</p>
+            <div class="row">
+                <div class="col">
+                    <p>Model: {{nave.model}}</p>
+                    <p>Cost in credits: {{nave.cost_in_credits}}</p>
+                    <p>Atmospheric Speed: {{nave.max_atmosphering_speed}}</p>
+                </div>
+                <div class="col">
+                    <p>Manufacturer: {{nave.manufacturer}}</p>
+                    <p>Length: {{nave.length}}</p>
+                    <p>Crew: {{nave.crew}}</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

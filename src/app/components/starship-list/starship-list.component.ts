@@ -12,7 +12,7 @@ export class StarshipListComponent {
   }
   
 
-  crearCarta(starshipName:string, starshipModel:string):void {
+  crearCarta(starshipName:string, starshipModel:string, starshipURL:string):void {  
     //variable de la web
     const divStarshipList = document.querySelector("#placeholder-starship-list") as HTMLDivElement;
 
@@ -37,6 +37,14 @@ export class StarshipListComponent {
     nuevaCarta.appendChild(modelo);
     newRow.appendChild(nuevaCarta);
     divStarshipList.appendChild(newRow);
+
+    //url
+    const starshipId = starshipURL.split("/").slice(-2, -1)[0]; //sacamos el id de la url de la api 
+
+    nuevaCarta.addEventListener("click", () => { //al hacer click en la nave, se cambia la url a la del componente carta
+      window.location.href = `/starship/${starshipId}`;
+    });
+
   }
 
 
@@ -48,8 +56,8 @@ export class StarshipListComponent {
       })
       .then(res=> res.json())
       .then(respuesta => {
-        respuesta.results.forEach((starship: { name: string; model: string; }) => {
-          this.crearCarta(starship.name, starship.model);
+        respuesta.results.forEach((starship: { name: string; model: string; url:string; }) => {
+          this.crearCarta(starship.name, starship.model, starship.url);
           console.log("api inicializada")
           console.log("starship name: ",starship.name);
           console.log("starship model: ",starship.model);

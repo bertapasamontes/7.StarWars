@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+$background-color: #2e2e2e;
+:root{
+    --background-color: #{$background-color};
+}
+
+
 body{
-    background-color: #101010;
+    background-color: --background-color !important;
+    font-family: Roboto !important;
 }

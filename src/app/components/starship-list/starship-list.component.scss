@@ -13,3 +13,8 @@
 .container{
     gap: 25px;
 }
+
+::ng-deep .row:hover{
+    cursor: pointer;
+    background-color: rgb(173, 177, 230);
+}

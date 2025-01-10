@@ -3,9 +3,11 @@ import { StarshipListComponent } from './components/starship-list/starship-list.
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CardComponent } from './components/card/card.component';
 
 export const routes: Routes = [
   { path: 'starship', component: StarshipListComponent },
+  { path: 'starship/:id', component: CardComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/starship', pathMatch: 'full' }, //hacer que la pagina predeterminada sea starship
   {path: '**', component: PageNotFoundComponent} //404 not found
