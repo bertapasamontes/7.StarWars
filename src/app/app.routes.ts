@@ -7,9 +7,10 @@ import { CardComponent } from './components/card/card.component';
 
 export const routes: Routes = [
   { path: 'starship', component: StarshipListComponent },
-  { path: 'starship/:id', component: CardComponent },
+  { path: '',   redirectTo: '/starship', pathMatch: 'full' },
+  { path: 'starship/:pagina/:id', component: CardComponent }, 
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/starship', pathMatch: 'full' }, //hacer que la pagina predeterminada sea starship
+  // { path: '', redirectTo: '/starship/:pagina', pathMatch: 'full' }, //hacer que la pagina predeterminada sea starship
   {path: '**', component: PageNotFoundComponent} //404 not found
 ];
 @NgModule({
