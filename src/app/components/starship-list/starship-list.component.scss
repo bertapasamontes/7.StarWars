@@ -17,7 +17,8 @@
 }
 
 ::ng-deep .carta:hover{
-    cursor: pointer;
+    // cursor: pointer;
+    cursor: url(../../../assets/img/cursor/mano-grap.png), auto;
     color: #2e2e2e;
-    background-color: rgb(173, 177, 230);
+    background-color: rgb(242, 210, 78);
 }

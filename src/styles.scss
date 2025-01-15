@@ -1,14 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 $background-color: #131313;
-// :root{
-//     --background-color: #{$background-color};
-// }
-
+$secundary-color: rgb(242, 210, 78);
 
 body{
     background-color: --background-color !important;
     font-family: Roboto !important;
+    cursor: url(assets/img/cursor/mano-flecha.png), auto;
+}
+
+a:hover{
+    cursor: url(assets/img/cursor/mano-grap.png), auto;
+    transition: cursor ease-in 0.5;
 }
 .dark-bg{
     background-color: $background-color;
 }
+
+::ng-deep a .activebutton{
+    border-bottom: 3px solid rgb(242, 210, 78) !important;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

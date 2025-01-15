@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { NavComponent } from "./components/nav/nav.component";
 import { ApiService } from './services/api.service';
+import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
+
 
 @Component({
   selector: 'app-root',
-  imports: [NavComponent],
+  imports: [NavComponent, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers:[ApiService]
 })
 export class AppComponent {
   title = '7.StarWars';
+
+  private iconos = inject(MatIconRegistry);
 
   pagina: number = 1;
 
