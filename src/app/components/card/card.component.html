@@ -1,10 +1,10 @@
 <div class="dark-bg ">
     <a class="btn" routerLink="/home" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Atrás</a>
-    <div *ngIf="nave" class="card container dark-bg">
+    <div *ngIf="nave" class=" container dark-bg">
         <div class="h2-title">
             <h2 class="mb-0">Starhip</h2>
         </div>
-        <div class="row mt-2 ">
+        <div class="row mt-2 card d-lg-flex flex-lg-row">
             <div class="col">
                 <ng-container *ngIf="nave.image2; else loading">
                     <img src="{{nave.image2}}" alt="foto-nave" class="img-fluid">

@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@font-face {
+    font-family: 'Star Wars Jedi';
+    src: url('./assets/fonts/Starjedi.ttf');
+  }
+
 $background-color: #131313;
 $secundary-color: rgb(242, 210, 78);
 
@@ -9,9 +15,13 @@ body{
     cursor: url(assets/img/cursor/mano-flecha.png), auto;
 }
 
+h1{
+    font-family: 'Star Wars Jedi';
+}
+
 a:hover{
     cursor: url(assets/img/cursor/mano-grap.png), auto;
-    transition: cursor ease-in 0.5;
+    transition: cursor ease-in 0.5s;
 }
 .dark-bg{
     background-color: $background-color;

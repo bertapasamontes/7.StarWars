@@ -1,3 +1,4 @@
+$bg-color:  #2e2e2e;
 ::ng-deep .nombre-starship{
     font-weight: 700;
     text-transform: uppercase;
@@ -7,7 +8,7 @@
 
 .info{
     padding: 10px;
-    background-color: #2e2e2e;
+    background-color: transparent;
     color: rgb(181, 181, 181);
 }
 
@@ -20,6 +21,6 @@
 
 .card{
     border: 0px;
-    background-color: transparent;
-
+    background-color: $bg-color;
+    clip-path: polygon(0 100%, 56% 100%, 57% 94%, 90% 94%, 92% 100%, 100% 100%, 100% 0%, 0% 0%);
 }
