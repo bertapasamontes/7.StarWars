@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "starwars-itacademy2025v02",
+    "starwars-project": "starwars-itacademy2025v02"
+  },
+  "targets": {},
+  "etags": {}
+}

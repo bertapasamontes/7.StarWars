@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "7.StarWars": {
+    "starwars-itacademy2025v02": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "7.StarWars:build:production"
+              "buildTarget": "starwars-itacademy2025v02:build:production"
             },
             "development": {
-              "buildTarget": "7.StarWars:build:development"
+              "buildTarget": "starwars-itacademy2025v02:build:development"
             }
           },
           "defaultConfiguration": "development"

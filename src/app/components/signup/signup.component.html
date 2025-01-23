@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Sign Up</h2>
+    <form [formGroup]="SignUpProfile" (ngSubmit)="onSubmit()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="name">
+
+        <label for="correo">Email:</label>
+        <input type="text" id="correo" formControlName="email">
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="text" id="contraseña" formControlName="password">
+
+        <button type="submit" [disabled]="!SignUpProfile.valid" class="btn">Sign Up</button>
+    </form>
+</div>

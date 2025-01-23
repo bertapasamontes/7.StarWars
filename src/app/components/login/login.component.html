@@ -1,0 +1,12 @@
+<p>login works!</p>
+<div class="container">
+    <form [formGroup]="loginProfile" (ngSubmit)="onSubmit()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="name">
+
+        <label for="correo">Email:</label>
+        <input type="text" id="correo" formControlName="email">
+
+        <button type="submit" [disabled]="!loginProfile.valid" class="btn">Log In</button>
+    </form>
+</div>

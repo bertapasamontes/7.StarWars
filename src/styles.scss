@@ -8,6 +8,7 @@
 
 $background-color: #131313;
 $secundary-color: rgb(242, 210, 78);
+$tertiary-color: rgb(181, 181, 181);
 
 body{
     background-color: --background-color !important;
@@ -34,3 +35,7 @@ a:hover{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h2, p , label, .btn{
+    color: $tertiary-color !important;
+}
