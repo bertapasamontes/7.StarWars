@@ -3,11 +3,13 @@ import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { NavComponent } from "./components/nav/nav.component";
 import { ApiService } from './services/api.service';
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
+import { HeaderComponent } from "./components/shared/header/header.component";
+import { FooterComponent } from "./components/shared/footer/footer.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [NavComponent, MatIconModule, RouterLink],
+  imports: [NavComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers:[ApiService]

@@ -1,0 +1,16 @@
+.navbar{
+    background-color: transparent;
+
+    & .navbar-brand{
+        color: rgb(181, 181, 181) !important;
+        text-transform: uppercase;
+        font-size: medium;
+        display: flex;
+        align-items: center;
+    }
+}
+.logo{
+    max-width: 15%;
+    display: flex;
+    justify-content: center;
+}
