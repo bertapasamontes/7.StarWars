@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { LogInService } from '../../services/logIn/log-in.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,27 +11,29 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+
+  constructor(
+    private loggedIn: LogInService
+  ){}
+
+  private router = inject(Router); 
+
   loginProfile = new FormGroup ({
-    name: new FormControl(''),
     email: new FormControl(''),
+    password: new FormControl(''),
+
   })
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.loginProfile.value);
+  async logIn() {
+    // console.warn(this.loginProfile.value);
+
+    const email= this.loginProfile.value.email || '';
+    const passwd= this.loginProfile.value.password || '';
+
+    const usuarioExiste = await this.loggedIn.userIsLoggedIn(email, passwd);
+
+    if(usuarioExiste){
+      this.router.navigate(['/home']); // redirección a Home
+    }
   }
-
-  
-
-auth = getAuth();
-// signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
 }

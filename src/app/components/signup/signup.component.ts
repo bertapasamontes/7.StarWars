@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
 import { SignUpService } from '../../services/sign-up.service';
 import { Usuario } from '../../interfaces/usuario';
-import { createUserWithEmailAndPassword, getAuth } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -16,32 +17,21 @@ export class SignupComponent {
     private UserService: SignUpService,
   ){}
 
+  private router = inject(Router); 
+
   SignUpProfile = new FormGroup ({
     name: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
   });
 
-  
-  // onSubmit() {
-  //   // TODO: Use EventEmitter with form value
-  //   const nuevoUser: Usuario = {
-  //     ...this.SignUpProfile.value,
-  //     fechaDeCreacion: new Date(),
-  //     fechaDeActualizacion: new Date()
-  //   } as Usuario;
-  //   console.warn(nuevoUser);
-  //   // this.UserService.registrarUsuario(nuevoUser)
-  //   this.UserService.registrarUsuario(nuevoUser);
-  // }
 
-
-  email = '';
-  password = '';
+  // email = '';
+  // password = '';
 
   auth = getAuth();
 
-  signUp() {
+  async signUp() {
     const email = this.SignUpProfile.value.email || ''; 
     const password = this.SignUpProfile.value.password || ''; 
     
@@ -50,14 +40,19 @@ export class SignupComponent {
       fechaDeCreacion: new Date(),
       fechaDeActualizacion: new Date()
     } as Usuario;
-    createUserWithEmailAndPassword(this.auth, email, password)
-      .then((userCredential) => {
-        console.log('Usuario registrado:', userCredential.user);
-        this.UserService.signUpUser(nuevoUser);
-        alert('Usuario registrado con éxito');
-      })
-      .catch((error) => {
-        console.error('Error al registrar usuario:', error.message);
-      });
+    this.UserService.signUpUser(nuevoUser); //creamos el user en la database.
+
+    const usuarioCreado = await createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
+
+    try{
+      updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
+      alert('Usuario registrado con éxito');
+
+      this.router.navigate(['/home']); // redirección a Home
+    }
+    catch(error) {
+      console.error('Error al registrar usuario:', error);
+    };
+
   }
 }

@@ -1,11 +1,15 @@
-<p>login works!</p>
-<div class="container">
-    <form [formGroup]="loginProfile" (ngSubmit)="onSubmit()">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" formControlName="name">
+<div class="container pt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="">
+        <h2>Bienvenido/a de nuevo al lado oscuro de la luna</h2>
+        <p>Enter your email and password to continue</p>
+    </div>
 
+    <form [formGroup]="loginProfile" (ngSubmit)="logIn()" class="d-flex flex-column w-75">
         <label for="correo">Email:</label>
-        <input type="text" id="correo" formControlName="email">
+        <input type="email" id="correo" formControlName="email">
+
+        <label for="passwd">Constraseña:</label>
+        <input type="text" id="passwd" formControlName="password">
 
         <button type="submit" [disabled]="!loginProfile.valid" class="btn">Log In</button>
     </form>
