@@ -4,7 +4,6 @@ $secundary: rgb(242, 210, 78);
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     border-radius: 5px;
     padding: 2%;
-    color: rgb(181, 181, 181);
     background-color: #2e2e2e;
 
     clip-path: polygon(0 100%, 56% 100%, 57% 94%, 90% 94%, 92% 100%, 100% 100%, 100% 0%, 0% 0%); //forma rechulona de la tarjeta
@@ -20,8 +19,12 @@ $secundary: rgb(242, 210, 78);
 }
 
 ::ng-deep .carta:hover{
-    // cursor: pointer;
-    cursor: url(../../../assets/img/cursor/mano-grap.png), auto;
-    color: #2e2e2e !important;
+    .nombre-starship{
+        color: #2e2e2e !important;
+    }
+    cursor: pointer;
+    // cursor: url(../../../assets/img/cursor/mano-grap.png), auto;
     background-color: rgb(242, 210, 78);
+
+    
 }

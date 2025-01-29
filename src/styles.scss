@@ -9,11 +9,14 @@
 $background-color: #131313;
 $secundary-color: rgb(242, 210, 78);
 $tertiary-color: rgb(181, 181, 181);
+$cuarto-color: rgb(209, 174, 36);
+
+
 
 body{
     background-color: --background-color !important;
     font-family: Roboto !important;
-    cursor: url(assets/img/cursor/mano-flecha.png), auto;
+    // cursor: url(assets/img/cursor/mano-flecha.png), auto;
 }
 
 h1{
@@ -21,7 +24,7 @@ h1{
 }
 
 a:hover{
-    cursor: url(assets/img/cursor/mano-grap.png), auto;
+    // cursor: url(assets/img/cursor/mano-grap.png), auto;
     transition: cursor ease-in 0.5s;
 }
 .dark-bg{
@@ -44,4 +47,13 @@ h2, p , label, .btn{
     width: 20px;
     height: auto;
     margin-right: 10px;
+}
+
+.carta:hover{
+   color: $background-color !important;
+}
+
+.btn{
+    background-color: $cuarto-color !important;
+    color: $background-color !important;
 }

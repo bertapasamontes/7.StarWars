@@ -5,6 +5,8 @@ import { ApiService } from './services/api.service';
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { HeaderComponent } from "./components/shared/header/header.component";
 import { FooterComponent } from "./components/shared/footer/footer.component";
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { AuthService } from './services/authService/auth.service';
 
 
 @Component({
@@ -17,10 +19,13 @@ import { FooterComponent } from "./components/shared/footer/footer.component";
 export class AppComponent {
   title = '7.StarWars';
   pagina: number = 1;
+  
 
   constructor(
     private ruta: ActivatedRoute,
+    public authService: AuthService
   ){}
+  user: User | null = null;
 
   ngOnInit(){
     this.ruta.paramMap.subscribe((params) => {

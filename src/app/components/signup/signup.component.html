@@ -1,15 +1,19 @@
-<div class="container">
-    <h2>Sign Up</h2>
-    <form [formGroup]="SignUpProfile" (ngSubmit)="onSubmit()">
+<div class="container pt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="">
+        <h2>Bienvenido/a al lado oscuro</h2>
+        <p>Enter your name, email and password to continue</p>
+    </div>
+    
+    <form [formGroup]="SignUpProfile" (ngSubmit)="signUp()" class="d-flex flex-column w-75">        
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" formControlName="name">
+        <input type="text" id="nombre" formControlName="name" placeholder="First Example" required>
 
         <label for="correo">Email:</label>
-        <input type="text" id="correo" formControlName="email">
+        <input type="email" id="correo" formControlName="email" placeholder="example@gmail.com" required>
 
         <label for="contraseña">Contraseña:</label>
-        <input type="text" id="contraseña" formControlName="password">
+        <input type="password" id="contraseña" formControlName="password" placeholder="Enter your password" required>
 
-        <button type="submit" [disabled]="!SignUpProfile.valid" class="btn">Sign Up</button>
+        <button type="submit" [disabled]="!SignUpProfile.valid" class="btn">Sign up</button>
     </form>
 </div>

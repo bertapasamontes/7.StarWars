@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 @Component({
   selector: 'app-login',
@@ -17,4 +18,18 @@ export class LoginComponent {
     // TODO: Use EventEmitter with form value
     console.warn(this.loginProfile.value);
   }
+
+  
+
+auth = getAuth();
+// signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
 }
