@@ -12,18 +12,29 @@ export class LogInService {
 
   async userIsLoggedIn(email:any, password:any){
 
-    try{
-      const usuarioLogueado = await signInWithEmailAndPassword(this.auth, email, password)
+    // try{
+    //   const usuarioLogueado = await signInWithEmailAndPassword(this.auth, email, password)
     
-      const user:User = usuarioLogueado.user;
+    //   const user:User = usuarioLogueado.user;
 
+    //   console.log("usuario logueado: ", user.displayName);
+    //   return true; 
+    // } 
+    // catch(error){
+    //   console.log("nungun usuario logueado:", error);
+    //   return false;
+    // };
+
+    signInWithEmailAndPassword(this.auth, email, password)
+    .then((usuarioLogueado)=>{
+      const user:User = usuarioLogueado.user;
       console.log("usuario logueado: ", user.displayName);
       return true; 
-    } 
-    catch(error){
+    })
+    .catch((error)=>{
       console.log("nungun usuario logueado:", error);
       return false;
-    };
+    });
   }
 
   

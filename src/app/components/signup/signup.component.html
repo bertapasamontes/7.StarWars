@@ -3,17 +3,32 @@
         <h2>Bienvenido/a al lado oscuro</h2>
         <p>Enter your name, email and password to continue</p>
     </div>
-    
-    <form [formGroup]="SignUpProfile" (ngSubmit)="signUp()" class="d-flex flex-column w-75">        
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" formControlName="name" placeholder="First Example" required>
 
-        <label for="correo">Email:</label>
-        <input type="email" id="correo" formControlName="email" placeholder="example@gmail.com" required>
+    <form [formGroup]="SignUpProfile" (ngSubmit)="signUp()" class="d-flex flex-column w-75 needs-validation" novalidate>
+        <div class="row mt-1">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" id="nombre" formControlName="name" placeholder="First Example" class="form-control"
+                required>
+        </div>
 
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" formControlName="password" placeholder="Enter your password" required>
+        <div class="row mt-4">
+            <label for="correo" class="form-label">Email:</label>
+            <input type="email" id="correo" formControlName="email" placeholder="example@gmail.com" class="form-control"
+                required>
+            <div class="valid-feedback">
+                Aceptado!
+            </div>
+        </div>
 
-        <button type="submit" [disabled]="!SignUpProfile.valid" class="btn">Sign up</button>
+        <div class="row mt-4">
+            <label for="contraseña" class="form-label">Contraseña:</label>
+            <input type="password" id="contraseña" formControlName="password" placeholder="Enter your password"
+                class="form-control" required>
+        </div>
+
+        <div class="row mt-4">
+            <button type="submit" [disabled]="!SignUpProfile.valid" class="btn">Sign up</button>
+        </div>
+
     </form>
 </div>

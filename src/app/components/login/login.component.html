@@ -3,14 +3,24 @@
         <h2>Bienvenido/a de nuevo al lado oscuro de la luna</h2>
         <p>Enter your email and password to continue</p>
     </div>
+    <div class="row">
+        <form [formGroup]="loginProfile" (ngSubmit)="logIn()" class="col g-3">
+            <div class="row">
+                <label for="correo" class="form-label">Email:</label>
+                <input type="email" id="correo" formControlName="email" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="row">
+                <label for="passwd" class="form-label">Constraseña:</label>
+                <input type="text" id="passwd" formControlName="password" class="form-control" required>
+            </div>
 
-    <form [formGroup]="loginProfile" (ngSubmit)="logIn()" class="d-flex flex-column w-75">
-        <label for="correo">Email:</label>
-        <input type="email" id="correo" formControlName="email">
+            <div class="row">
+                <button type="submit" [disabled]="!loginProfile.valid" class="btn">Log In</button>
+            </div>
+        </form>
+    </div>
 
-        <label for="passwd">Constraseña:</label>
-        <input type="text" id="passwd" formControlName="password">
-
-        <button type="submit" [disabled]="!loginProfile.valid" class="btn">Log In</button>
-    </form>
 </div>

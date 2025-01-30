@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
 import { SignUpService } from '../../services/sign-up.service';
 import { Usuario } from '../../interfaces/usuario';
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword, getAuth, updateProfile, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -42,17 +42,37 @@ export class SignupComponent {
     } as Usuario;
     this.UserService.signUpUser(nuevoUser); //creamos el user en la database.
 
-    const usuarioCreado = await createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
+    // const usuarioCreado = await createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
 
-    try{
-      updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
-      alert('Usuario registrado con éxito');
+    // try{
+    //   updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
+    //   alert('Usuario registrado con éxito');
 
-      this.router.navigate(['/home']); // redirección a Home
-    }
-    catch(error) {
-      console.error('Error al registrar usuario:', error);
-    };
+    //   // this.router.navigate(['/home']); // redirección a Home
+    // }
+    // catch(error) {
+    //   console.error('Error al registrar usuario:', error);
+    //   if(error === "auth/email-already-in-use"){
+    //     alert(error);
+    //   }
+    // };
+
+
+    createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
+      .then((usuarioCreado: { user: User; })=>{
+        updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
+        console.log('Usuario registrado con éxito');
+        
+        setTimeout(()=> {
+          this.router.navigate(['/home-animation']),
+          80000}); // redirección a Home
+      })
+      .catch((error)=> {
+        console.error('Error al registrar usuario:', error.code);
+        if(error.code === "auth/email-already-in-use"){
+          alert("Gmail ya registrado, camarada. Prueba con otro o inicia sesión 😊");
+        }
+      });
 
   }
 }
