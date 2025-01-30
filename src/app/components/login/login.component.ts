@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
 import { getAuth, signInWithEmailAndPassword, User } from "firebase/auth";
 import { LogInService } from '../../services/logIn/log-in.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   constructor(
-    private loggedIn: LogInService
+    // private loggedIn: LogInService,
+    private route: ActivatedRoute,
   ){}
 
   private router = inject(Router); 
@@ -24,7 +25,7 @@ export class LoginComponent {
 
   })
 
-  async logIn() {
+  logIn() {
     // console.warn(this.loginProfile.value);
 
     const email= this.loginProfile.value.email || '';
@@ -41,7 +42,9 @@ export class LoginComponent {
           const user:User = usuarioLogueado.user;
           console.log("usuario logueado: ", user.displayName);
 
-          this.router.navigate(['/home-animation']); // redirección a Home
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
+          this.router.navigateByUrl(returnUrl);
+          
           return true; 
         })
         .catch((error)=>{
