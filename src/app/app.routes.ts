@@ -17,7 +17,6 @@ export const routes: Routes = [
   { path: 'home-animation', component: HomeAnimationComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  // { path: '', redirectTo: '/starship/:pagina', pathMatch: 'full' }, //hacer que la pagina predeterminada sea starship
   {path: '**', component: PageNotFoundComponent} //404 not found
 ];
 @NgModule({

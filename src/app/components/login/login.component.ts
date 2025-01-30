@@ -3,10 +3,11 @@ import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
 import { getAuth, signInWithEmailAndPassword, User } from "firebase/auth";
 import { LogInService } from '../../services/logIn/log-in.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatIconModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -44,7 +45,7 @@ export class LoginComponent {
 
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
           this.router.navigateByUrl(returnUrl);
-          
+
           return true; 
         })
         .catch((error)=>{
