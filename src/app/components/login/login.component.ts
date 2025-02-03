@@ -49,7 +49,7 @@ export class LoginComponent {
           return true; 
         })
         .catch((error)=>{
-          console.log("nungun usuario logueado:", error);
+          console.log("ningun usuario logueado:", error);
           if(error.code === "auth/invalid-credential"){
               alert("Parece que no te renemos aún en el equipo 😔. Registrate!!");
             }

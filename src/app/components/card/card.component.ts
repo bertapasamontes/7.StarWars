@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgIf, CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
+import { PilotsComponent } from "./pilots/pilots.component";
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule, NgIf],
+  imports: [CommonModule, NgIf, PilotsComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

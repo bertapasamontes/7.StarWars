@@ -1,0 +1,27 @@
+<div>
+    <div *ngIf="pilotos" class=" container dark-bg">
+        <div class="h2-title">
+            <h2 class="mb-0">PILOTS</h2>
+        </div>
+        <div class="row mt-2 d-lg-flex flex-lg-row">
+            @for(pilot of pilotos; track pilot.name){
+            <!-- @for(pilot of getKeys(pilotos); track pilotos.name){ -->
+            <div class="col carta-piloto">
+                <div class="row">
+                    <ng-container *ngIf="pilot.image; else loading">
+                        <img src="{{pilot.image}}" alt="foto-piloto" class="img-fluid img-piloto">
+                    </ng-container>
+                    <ng-template #loading>
+                        <img src="assets/img/loading.gif" alt="Cargando..." class="img-fluid img-piloto">
+                    </ng-template>
+                </div>
+                <div class="row info">
+                    <p class="piloto-nombre">{{pilot.name}}</p>
+                </div>
+            </div>
+
+            }
+
+        </div>
+    </div>
+</div>
