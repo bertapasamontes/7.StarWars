@@ -1,4 +1,6 @@
 $secundary-color: rgb(242, 210, 78);
+$forth-color: rgb(206, 173, 40);
+$tertiary-color: rgb(255, 233, 144);
 .button {
     box-shadow: inset 0 1px 0 0 #ffffff;
     background: #ffffff linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
@@ -22,8 +24,13 @@ $secundary-color: rgb(242, 210, 78);
 .nav-link{
     text-transform: uppercase;
     color: #696969;
-    border:1px solid #696969;
-    border-radius: 0px;
+    // border:1px solid #696969;
+    border-radius: 5px;
+
+    &:hover{
+        color: $forth-color;
+        background-color: $tertiary-color;
+    }
 }
 .activebutton {
     // border: 1px solid #1a1a1a;

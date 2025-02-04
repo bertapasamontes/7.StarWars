@@ -8,8 +8,13 @@
 
 $background-color: #131313;
 $secundary-color: rgb(242, 210, 78);
-$tertiary-color: rgb(181, 181, 181);
-$cuarto-color: rgb(209, 174, 36);
+$color-black: #393939;
+
+$fifth-color: rgb(181, 181, 181);
+// $cuarto-color: rgb(209, 174, 36);
+
+$forth-color: rgb(206, 173, 40);
+$tertiary-color: rgb(255, 233, 144);
 
 
 
@@ -32,15 +37,18 @@ a:hover{
 }
 
 ::ng-deep a .activebutton{
-    border-bottom: 3px solid rgb(242, 210, 78) !important;
+    border-bottom: 3px solid $secundary-color !important;
 }
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-h2, p , label, .btn{
+h2, label, .btn{
     color: $tertiary-color !important;
+}
+p{
+    color: $fifth-color !important;
 }
 
 .icono-redes{
@@ -53,7 +61,33 @@ h2, p , label, .btn{
    color: $background-color !important;
 }
 
+// .btn{
+//     background-color: $cuarto-color !important;
+//     color: $background-color !important;
+// }
+
 .btn{
-    background-color: $cuarto-color !important;
-    color: $background-color !important;
+    background-color: $secundary-color !important;
+    color: $color-black !important;
+    border-radius: 50px !important;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition-duration: 0.5s;
+
+    &:hover{
+        color: $forth-color !important;
+        background-color: #393939 !important;
+        border: 1px solid $secundary-color !important;
+    }
+}
+
+.carta-piloto, .carta-peli{
+    border-radius: 20px !important;
+    max-width: 350px !important;
+    
+}
+.img-fluid{
+    border-radius: 20px !important;
+    // margin: 10px;
 }

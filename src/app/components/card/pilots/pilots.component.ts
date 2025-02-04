@@ -76,28 +76,33 @@ export class PilotsComponent {
    }
 
   pilotosDeLaNave(){
-    // console.log("pilotos de la nave: ", this.pilotosDeNave);
     this.pilotosDeNave.forEach((urlPiloto: string) => {
-      this.servicioApi.getPeople(urlPiloto).subscribe(
-        // (pilot)=>{
-        //   this.pilotos = {
-        //     name: pilot.name,
-        //     films: pilot.films
-        //   }
-        // }
 
+
+
+      this.servicioApi.getInfo(urlPiloto).subscribe(
         (pilot)=>{
+          
           const pilotId = this.getId(pilot.url);
-          this.pilotos.push({
-            id: pilotId,
-            name: pilot.name,
-            films: pilot.films,
-            url: pilot.url,
-            image: "https://starwars-visualguide.com/assets/img/characters/"+pilotId+".jpg",
-          })
+          const especiePiloto = "Especie desconocida";
+
+          if(pilot.species.length > 0){
+            //planeta origen:
+            this.servicioApi.getInfo(pilot.species[0]).subscribe((especie)=> {
+              const especiePiloto =  especie.name;
+              this.addPilot(pilotId, pilot, especiePiloto);
+            })
+          }
+          else{
+            this.addPilot(pilotId, pilot, especiePiloto);
+          }
+          
+          
         }
       );
     });
+    console.log("pilotos de la nave: ", this.pilotos);
+
   }
 
   getKeys(obj: any): string[] {
@@ -105,5 +110,16 @@ export class PilotsComponent {
   }
   getId(url: string): string {
     return url.split('/').filter(Boolean).pop() || '';
+  }
+
+  addPilot(pilotId:string, pilot: any, especiePiloto: string){
+    this.pilotos.push({
+      id: pilotId,
+      name: pilot.name,
+      films: pilot.films,
+      url: pilot.url,
+      image: "https://starwars-visualguide.com/assets/img/characters/"+pilotId+".jpg",
+      especie: especiePiloto
+    })
   }
 }

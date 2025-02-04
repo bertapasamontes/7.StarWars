@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { NgIf, CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { PilotsComponent } from "./pilots/pilots.component";
+import { FilmsComponent } from "./films/films.component";
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule, NgIf, PilotsComponent],
+  imports: [CommonModule, NgIf, PilotsComponent, FilmsComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

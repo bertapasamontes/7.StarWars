@@ -31,9 +31,7 @@ export class ApiService {
   }
   // ------------------
 
-  getPeople(url:string): Observable <any>{
-    const  starshipURLDetail = "https://swapi.py4e.com/api/people/";
-    // return this.http.get(starshipURLDetail);
+  getInfo(url:string): Observable <any>{
     return this.http.get(url);
   }
 

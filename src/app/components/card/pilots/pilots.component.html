@@ -7,16 +7,16 @@
             @for(pilot of pilotos; track pilot.name){
             <!-- @for(pilot of getKeys(pilotos); track pilotos.name){ -->
             <div class="col carta-piloto">
-                <div class="row">
+                <div class="">
                     <ng-container *ngIf="pilot.image; else loading">
-                        <img src="{{pilot.image}}" alt="foto-piloto" class="img-fluid img-piloto">
+                        <img src="{{pilot.image}}" alt="foto-piloto" class="img-fluid img-card">
                     </ng-container>
                     <ng-template #loading>
-                        <img src="assets/img/loading.gif" alt="Cargando..." class="img-fluid img-piloto">
+                        <img src="assets/img/loading.gif" alt="Cargando..." class="img-fluid img-card">
                     </ng-template>
                 </div>
-                <div class="row info">
-                    <p class="piloto-nombre">{{pilot.name}}</p>
+                <div class=" info-carta">
+                    <p class="piloto-nombre">{{pilot.name}} ({{pilot.especie}})</p>
                 </div>
             </div>
 

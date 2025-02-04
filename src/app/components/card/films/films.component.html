@@ -1,0 +1,26 @@
+<div *ngIf="peliculas" class=" container dark-bg">
+    <div class="h2-title">
+        <h2 class="mb-0">FILMS</h2>
+    </div>
+    <div class="row mt-2 d-lg-flex flex-lg-row">
+        @for(peli of peliculas; track peli.id){
+        <!-- @for(peli of getKeys(pelios); track pelios.name){ -->
+        <div class="col carta-peli" onclick="redirect()">
+            <div class="row">
+                <ng-container *ngIf="peli.image; else loading">
+                    <img src="{{peli.image}}" alt="foto-film" class="img-fluid img-card">
+                </ng-container>
+                <ng-template #loading>
+                    <img src="assets/img/loading.gif" alt="Cargando..." class="img-fluid img-card">
+                </ng-template>
+            </div>
+            <div class="row info-carta">
+                <p class="film-nombre"><b>{{peli.title}}</b></p>
+                <p class="film-episodio">{{peli.episode}}</p>
+            </div>
+        </div>
+
+        }
+
+    </div>
+</div>
