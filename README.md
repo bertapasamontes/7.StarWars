@@ -1,6 +1,6 @@
 # 7.StarWars
 
-Proyecto donde ver la información de las naves de StarWars.
+Proyecto en el que puedes ver la información de las naves de StarWars.
 
 ## 💻 Tecnologías usadas
 Este proyecto ha sido creado usando:
@@ -28,4 +28,4 @@ ng serve -o
 ```
 
 ## 🤝 Contribuciones
-¡Contribuciones, sugernecias y mejoras son bienvenidas!
+¡Contribuciones, sugerencias y mejoras son bienvenidas!
