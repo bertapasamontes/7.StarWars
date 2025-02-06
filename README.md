@@ -28,4 +28,4 @@ ng serve -o
 ```
 
 ## 🤝 Contribuciones
-¡Contribuciones, sugernecias y mejoras son bienvenidas!
+¡Contribuciones, sugerencias y mejoras son bienvenidas!
