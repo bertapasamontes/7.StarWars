@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NgIf, CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { PilotsComponent } from "./pilots/pilots.component";
@@ -7,7 +7,7 @@ import { FilmsComponent } from "./films/films.component";
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule, NgIf, PilotsComponent, FilmsComponent],
+  imports: [CommonModule, NgIf, PilotsComponent, FilmsComponent, RouterLink],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
@@ -17,6 +17,8 @@ export class CardComponent {
     private servicioApi: ApiService,
     private ruta: ActivatedRoute
   ){}
+  private router = inject(Router); 
+  
 
   nave: any={};
 
@@ -63,4 +65,9 @@ export class CardComponent {
   //     console.log("error: ", error)
   //   }
   // }
+
+  atras(){
+    const returnUrl = this.ruta.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
+      this.router.navigateByUrl(returnUrl);
+  }
 }

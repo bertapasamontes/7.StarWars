@@ -23,4 +23,9 @@ describe('PilotsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get the id / the last digit in the url', ()=>{
+    const id = component.getId('https://swapi.py4e.com/api/people/1/');
+    expect(id).toBe('1');
+  });
 });

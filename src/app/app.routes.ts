@@ -12,7 +12,7 @@ import { AuthGuard } from './_helpers/auth.guard';
 export const routes: Routes = [
   { path: 'starship', component: StarshipListComponent, canActivate: [AuthGuard]}, // con el "canActivate: [AuthGuard]" protegemos las paginas que no queremos que los usuarios sin loguear accedan.
   { path: '',   redirectTo: '/starship', pathMatch: 'full'},
-  { path: 'starship/:pagina/:id', component: CardComponent }, 
+  { path: 'starship/:pagina/:id', component: CardComponent, canActivate: [AuthGuard]}, 
   { path: 'home', component: HomeComponent},
   { path: 'home-animation', component: HomeAnimationComponent },
   { path: 'signup', component: SignupComponent },

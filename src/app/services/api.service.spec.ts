@@ -16,4 +16,10 @@ describe('ApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it("should get pilot name", ()=>{
+    const nombrePiloto = "Luke Skywalker";
+    service.getInfo('https://swapi.py4e.com/api/people/1/').subscribe((perfil)=> {
+      expect(perfil.name).toBe(nombrePiloto);
+    })
+  })
 });
