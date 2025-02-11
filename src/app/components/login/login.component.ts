@@ -35,15 +35,16 @@ export class LoginComponent {
       const user:User = usuarioLogueado.user;
       console.log("usuario logueado: ", user.displayName);
 
-      const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
-      this.router.navigateByUrl(returnUrl);
+      // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
+      // this.router.navigateByUrl(returnUrl);
+      // // this.router.navigateByUrl("/starship");
 
       return true; 
     })
     .catch((error)=>{
       console.log("ningun usuario logueado:", error);
       if(error.code === "auth/invalid-credential"){
-          alert("Parece que no te renemos aún en el equipo 😔. Registrate!!");
+          alert("Parece que no te tenemos aún en el equipo 😔. Registrate!!");
         }
       return false;
     });

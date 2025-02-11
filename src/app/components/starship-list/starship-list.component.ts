@@ -2,6 +2,7 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { PageNumberService } from '../../services/page-number.service';
 import { ActivatedRoute } from '@angular/router';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 
 @Component({
   selector: 'app-starship-list',
@@ -43,13 +44,11 @@ export class StarshipListComponent implements OnInit{
       let resultados = Array.from(respuesta.results); //los resutlados que obtenemos los transformamos en un array.
       resultados.forEach((nave:any)=>{ //los recorremos
         if(!this.listaStarhips.some((existing: any) => existing.id === nave.id)){
-          this.listaStarhips = [... this.listaStarhips, nave]
+          this.listaStarhips = [... this.listaStarhips, nave]//añadimos cada nave a la lista de naves
         }
-        // this.listaStarhips = [... this.listaStarhips, nave] //añadimos cada nave a la lista de naves
         
       })
       console.log("list lengh antes de imprimir:", this.listaStarhips.length)
-      // console.log("estoy aqui")
       this.printCard();
     }
   })

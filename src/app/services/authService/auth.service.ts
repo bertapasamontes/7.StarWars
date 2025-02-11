@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire/app';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getAuth, onAuthStateChanged, signOut, User } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 
@@ -7,37 +9,54 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
+  userIsLogged=false;
+
   private usuarioLogueado = new BehaviorSubject <User | null> (null); //creamos un servicio para ver el estado del user
   user$ = this.usuarioLogueado.asObservable(); // hacemos que sea observable para que otros componentes lo puedan ver.
-
-  auth = getAuth();
   
+  // usuarioLogueado: User | null = null
 
-  constructor(){
-    // if (user) {
-    // // https://firebase.google.com/docs/reference/js/auth.user
-    //   console.log("Usuario logueado con exito");
-    //   this.usuarioLogueado.next(user); // Compartir el usuario en tiempo real
-    //   return localStorage.setItem('user', JSON.stringify(user)); // Guardar usuario en localStorage
-      
-    // }
-    // else{
-    //   localStorage.removeItem('user'); // Eliminar usuario al cerrar sesión
-    //   return console.log("No hay usuario logueado");
-    // }
+
+    private router = inject(Router); 
+  
+  constructor(
+        private route: ActivatedRoute,
+    
+  ){
+
+    const auth = getAuth();
     
     //el usuario ha iniciado sesion:
-    onAuthStateChanged(this.auth, (user) => { //al cargar la pagina, miramos si el estado del usuario cambia (si ha iniciado sesion o si la ha cerrado).
+    onAuthStateChanged(auth, (user) => { //al cargar la pagina, miramos si el estado del usuario cambia (si ha iniciado sesion o si la ha cerrado).
     
-      this.usuarioLogueado.next(user); //el usuario está logueado
+      // usuarioLogueado.next(user); //el usuario está logueado
+      this.usuarioLogueado.next(user);
       if (user) {
-        
-        console.log('Usuario logueado:', user.email);
-        localStorage.setItem('user', JSON.stringify(user));
-      } else {
+        this.userIsLogged = true;
+         console.log("userIsLogged = true");
+         localStorage.setItem('user', JSON.stringify(user));
+
+
+      
+         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
+         this.router.navigateByUrl(returnUrl);
+         // this.router.navigateByUrl("/starship");
+      } 
+      else {
+        this.userIsLogged = false;
+        console.log("userIsLogged = false");
         localStorage.removeItem('user');
         console.log('No hay usuario logueado');
       }
+      
+      // if(this.userIsLogged === true){
+      //   console.log('Usuario logueado:', user?.email);
+      //   localStorage.setItem('user', JSON.stringify(user));
+      // }
+      // else {
+      //   localStorage.removeItem('user');
+      //   console.log('No hay usuario logueado');
+      // }
     });
 
   }
