@@ -1,8 +1,9 @@
 # 7.StarWars
 
 Proyecto en el que puedes ver la información de las naves de StarWars.
+<br/>
+![image](https://github.com/user-attachments/assets/65ca7cd5-767f-4188-8c09-a505a1a5667c)
 
-![image](https://github.com/user-attachments/assets/41dd928d-e022-4a44-a954-50df8382e24a)
 
 
 ## 💻 Tecnologías usadas
