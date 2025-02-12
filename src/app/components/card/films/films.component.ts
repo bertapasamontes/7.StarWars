@@ -49,7 +49,9 @@ export class FilmsComponent {
         (peli)=>{
           this.peliculas.push({
             id: peliId,
-            image: "https://starwars-visualguide.com/assets/img/films/"+peliId+".jpg",
+            // image: "https://starwars-visualguide.com/assets/img/films/"+peliId+".jpg",
+            image: "../assets/img/films/"+peliId+".jpg",
+
             url: URLpeli,
             title: peli.title,
             episode:"Episode "+peli.episode_id

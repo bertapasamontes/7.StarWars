@@ -31,44 +31,12 @@ export class PilotsComponent {
   async gettingPilots(id:string):Promise<void>{
     this.servicioApi.getDetails(id).subscribe(
     (nave) => {
-      console.log("dentro de pilots getting pilots");
       console.log("nave:",nave.url);
-
-      // console.log("pilotos de la nave antes de getPeople: ", nave.pilots);
       this.pilotosDeNave = nave.pilots;
 
       this.pilotosDeLaNave();
 
       },
-    
-      // this.servicioApi.getPeople().subscribe(
-      //   (people)=>{
-      //     console.log("people: ", people.results);
-      //     for (let piloto of people.results){  //miramos cada uno de los pilotos
-      //       console.log("piloto starship: ", piloto.starships);
-      //       console.log("nave url: ", nave.url);
-
-
-
-      //       if (nave.url in piloto.starships){ 
-      //         nave.pilots.append(piloto.name);
-      //         // console.log("piloto: ", nave);
-      //         console.log("pilotoaDeNave: ", this.pilotosDeNave);
-      //         // console.log("piloto añadido a nave.pilots")
-      //       }
-      //       else console.log("no encuentro la nave");
-      //     }
-      //     // console.log("pilotos que manejan la nave:",nave.pilots);
-      //     this.pilotosDeNave = nave.pilots;
-
-      //     this.pilotosDeLaNave();
-
-      //   },
-      //   (error)=>{
-      //     console.log("error: ", error);
-      //   }
-      // );
-    // },
     (error) => {
       console.error("error: ",error)
     });
@@ -118,7 +86,9 @@ export class PilotsComponent {
       name: pilot.name,
       films: pilot.films,
       url: pilot.url,
-      image: "https://starwars-visualguide.com/assets/img/characters/"+pilotId+".jpg",
+      // image: "https://starwars-visualguide.com/assets/img/characters/"+pilotId+".jpg",
+      image: "https://raw.githubusercontent.com/vieraboschkova/swapi-gallery/refs/heads/main/static/assets/img/people/"+pilotId+".jpg",
+
       especie: especiePiloto
     })
   }

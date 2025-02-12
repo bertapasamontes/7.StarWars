@@ -24,7 +24,7 @@ body{
     // cursor: url(assets/img/cursor/mano-flecha.png), auto;
 }
 
-h1, .bienvenida-texto{
+h1{
     font-family: 'Star Wars Jedi';
 }
 
@@ -90,4 +90,11 @@ p{
 .img-fluid{
     border-radius: 20px !important;
     // margin: 10px;
+}
+
+.bienvenida-texto{
+    color: $fifth-color;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
 }

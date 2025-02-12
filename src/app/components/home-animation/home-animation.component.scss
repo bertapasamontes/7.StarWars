@@ -1,10 +1,11 @@
 $cuarto-color: rgb(209, 174, 36);
+$fifth-color: rgb(181, 181, 181);
 
 .bienvenida-texto{
-  color: #000 !important;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: $cuarto-color;
-  font-size: 60px;
+  // color: #000 !important;
+  // -webkit-text-stroke-width: 3px;
+  // -webkit-text-stroke-color: $cuarto-color;
+  font-size: 60px;  
 }
 
 
@@ -125,11 +126,11 @@ $cuarto-color: rgb(209, 174, 36);
   }
   
   .star {
-    top: -0.75em;
+    top: -1.75em;
   }
   
   .wars {
-    bottom: -0.5em;
+    bottom: -2.5em;
   }
   
   .byline {

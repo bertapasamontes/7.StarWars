@@ -36,8 +36,6 @@ export class AuthService {
          console.log("userIsLogged = true");
          localStorage.setItem('user', JSON.stringify(user));
 
-
-      
          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
          this.router.navigateByUrl(returnUrl);
          // this.router.navigateByUrl("/starship");
@@ -48,15 +46,6 @@ export class AuthService {
         localStorage.removeItem('user');
         console.log('No hay usuario logueado');
       }
-      
-      // if(this.userIsLogged === true){
-      //   console.log('Usuario logueado:', user?.email);
-      //   localStorage.setItem('user', JSON.stringify(user));
-      // }
-      // else {
-      //   localStorage.removeItem('user');
-      //   console.log('No hay usuario logueado');
-      // }
     });
 
   }

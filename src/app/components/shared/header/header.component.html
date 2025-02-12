@@ -12,7 +12,7 @@
       <div class="nav justify-content-end ">
         <div class="d-flex align-items-baseline">
           @if(user !== null){ <!-- si el user está logueado, que aparezca su nombre y el boton de log out -->
-            <p>Hola, {{ user.displayName }} </p> 
+            <p>Hola, <span class="user-name">{{ user.displayName }}</span> </p> 
             <button (click)="authService.logout()" class="btn d-flex align-items-center"><mat-icon>logout</mat-icon>
               <span class="mx-1"></span>Log Out</button>
           }@else{ <!-- si no está logueado, que aparezca el boton de inicar sesion y de registro -->

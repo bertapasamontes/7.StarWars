@@ -35,7 +35,6 @@ export class CardComponent {
       if(pageParam){
         this.pagina = Number(pageParam);
       }
-      // console.log('Current Page:', this.pagina);
     });
     
   }
@@ -44,27 +43,15 @@ export class CardComponent {
     this.servicioApi.getDetails(id).subscribe(
     (respuesta) => {
       this.nave = respuesta;
-      this.nave.image2 = "https://starwars-visualguide.com/assets/img/starships/"+id+".jpg";
+      // this.nave.image2 = "https://starwars-visualguide.com/assets/img/starships/"+id+".jpg";
+      this.nave.image2 = "../assets/img/starships/"+id+".jpg";
+
       console.dir("nave:"+this.nave);
     },
     (error) => {
       console.error(error)
     });
   }
-
-  // async getImage(id:string){
-  //   const starshipImageUrl = "https://starwars-visualguide.com/assets/img/starships/"+id+".jpg";
-  //   // const starshipImageUrl = "https://swapi.dev/assets/img/starships/"+id+".jpg";
-  //   try{
-  //     const imageNave = await fetch(starshipImageUrl);
-  //     this.nave.image = imageNave.url;
-  //     console.log("nave con imagen:",this.nave.image)
-  //   }
-  //   catch(error){
-  //     console.error(error);
-  //     console.log("error: ", error)
-  //   }
-  // }
 
   atras(){
     const returnUrl = this.ruta.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.

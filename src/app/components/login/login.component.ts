@@ -35,10 +35,6 @@ export class LoginComponent {
       const user:User = usuarioLogueado.user;
       console.log("usuario logueado: ", user.displayName);
 
-      // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; //al completar el login (user no logueado redireccionado por el guard) lo devuelve a la pantalla donde queria acceder.
-      // this.router.navigateByUrl(returnUrl);
-      // // this.router.navigateByUrl("/starship");
-
       return true; 
     })
     .catch((error)=>{
