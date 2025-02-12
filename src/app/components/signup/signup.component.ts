@@ -42,22 +42,6 @@ export class SignupComponent {
     } as Usuario;
     this.UserService.signUpUser(nuevoUser); //creamos el user en la database.
 
-    // const usuarioCreado = await createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
-
-    // try{
-    //   updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
-    //   alert('Usuario registrado con éxito');
-
-    //   // this.router.navigate(['/home']); // redirección a Home
-    // }
-    // catch(error) {
-    //   console.error('Error al registrar usuario:', error);
-    //   if(error === "auth/email-already-in-use"){
-    //     alert(error);
-    //   }
-    // };
-
-
     createUserWithEmailAndPassword(this.auth, email, password) //creamos el user en el firebase auth
       .then((usuarioCreado: { user: User; })=>{
         updateProfile(usuarioCreado.user, { displayName: this.SignUpProfile.value.name }); //asignamos el display name del usuario creado en el firebase database (tipo Usuario) al usuario creado del Firebase Auth, q no me lo coge.
