@@ -4,10 +4,11 @@ import { NgIf, CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { PilotsComponent } from "./pilots/pilots.component";
 import { FilmsComponent } from "./films/films.component";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule, NgIf, PilotsComponent, FilmsComponent, RouterLink],
+  imports: [CommonModule, NgIf, PilotsComponent, FilmsComponent, RouterLink, MatIconModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

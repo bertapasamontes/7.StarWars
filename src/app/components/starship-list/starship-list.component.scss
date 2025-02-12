@@ -19,7 +19,7 @@ $secundary: rgb(242, 210, 78);
 }
 
 ::ng-deep .carta:hover{
-    .nombre-starship{
+    p{
         color: #2e2e2e !important;
     }
     cursor: pointer;

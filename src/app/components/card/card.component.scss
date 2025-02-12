@@ -24,3 +24,9 @@ $bg-color:  #2e2e2e;
     background-color: $bg-color;
     clip-path: polygon(0 100%, 56% 100%, 57% 94%, 90% 94%, 92% 100%, 100% 100%, 100% 0%, 0% 0%);
 }
+
+.back{
+    display: flex !important;
+    align-items: center !important;
+    max-width: 100px !important;
+}
