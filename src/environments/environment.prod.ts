@@ -8,7 +8,7 @@ export const environment = {
       messagingSenderId: process.env['NG_APP_FIREBASE_MESSAGING_SENDER_ID'],
       appId: process.env['NG_APP_FIREBASE_APP_ID'],
       databaseURL: process.env['NG_APP_FIREBASE_DATABASE_URL'],
-      measurementId: process.env['NG_APP_FIREBASE_MEASURAMENT_ID']
+      measurementId: process.env['NG_APP_FIREBASE_MEASUREMENT_ID']
 
     }
   };
