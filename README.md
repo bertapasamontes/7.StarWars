@@ -3,16 +3,7 @@
 Proyecto en el que puedes ver la información de las naves de StarWars.
 
 🖥️ Previsualización:
-<div class="row">
-  <div class="col">![image](https://github.com/user-attachments/assets/65ca7cd5-767f-4188-8c09-a505a1a5667c)</div>
-  <div class="col">
-    <div class="row">![image](https://github.com/user-attachments/assets/fdab7d96-f593-444c-bace-4332e3706c92)
-</div>
-    <div class="row">![image](https://github.com/user-attachments/assets/7cfd178a-6854-4418-b6c4-9c0aecb145ad)
-</div>
-  </div>
-
-
+![image](https://github.com/user-attachments/assets/ea954aa4-1e80-41b8-8cd5-17cc733ad8b8)
 
 
 ## 💻 Tecnologías usadas
